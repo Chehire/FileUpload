@@ -1,0 +1,240 @@
+﻿$successColor: green;
+$errorColor: red;
+$normalColor: #686868;
+
+.clear {
+    clear: both;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: $normalColor;
+    padding: 10px;
+}
+
+.container {
+    margin: 50px;
+    padding: 50px;
+    border: 1px dotted $normalColor;
+    border-radius: 5px;
+    background: #FAFBFC;
+}
+
+.container-narrow {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.upload {
+    display: none;
+
+    h1, img, p {
+        display: none;
+    }
+}
+
+.dragdrop-supported {
+
+    .upload {
+
+        h1 {
+            display: block;
+            text-align: center;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+
+        p {
+            display: block;
+            text-align: center;
+        }
+
+        .form {
+            width: 100px;
+            margin: 0 auto;
+        }
+
+        .form button {
+            width: 100%;
+            display: block;
+            padding: 6px;
+        }
+
+        .status {
+            margin: 20px auto 0 auto;
+        }
+
+        .file {
+            margin-bottom: 10px;
+        }
+
+        .file-name {
+            margin-bottom: 5px;
+            float: left;
+
+            a {
+                text-decoration: none;
+                color: unset;
+            }
+        }
+    }
+}
+
+.clipboard-supported {
+    .clipboard {
+        display: block;
+    }
+}
+
+.file-state {
+    float: right;
+}
+
+.file-progress {
+    height: 2px;
+}
+
+.file-current {
+    .file-name, .file-state {
+        font-weight: bold;
+        color: $normalColor;
+    }
+
+    .file-progress {
+        background-color: $normalColor;
+    }
+}
+
+.file-done {
+    .file-name, .file-state {
+        color: $successColor;
+    }
+
+    .file-progress {
+        background-color: $successColor;
+    }
+}
+
+.file-error {
+    .file-name, .file-state {
+        color: $errorColor;
+    }
+
+    .file-progress {
+        background-color: $errorColor;
+    }
+}
+
+.version {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    opacity: 0.5;
+}
+
+.browser {
+    table {
+        width: 100%;
+        border-spacing: unset;
+
+        th, td {
+            padding: 8px 16px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            text-align: left;
+            border-bottom: 1px solid #686868;
+        }
+
+        tr:nth-child(2n + 1) td {
+            background: #f8f8f8;
+        }
+
+        tr:hover td {
+            background: #FFFFA5;
+        }
+    }
+
+    .file-name {
+        min-width: 194px;
+    }
+
+    .file-size {
+        width: 70px;
+    }
+
+    .file-modifiedat {
+        width: 140px;
+    }
+
+    td.file-size {
+        text-align: right;
+    }
+
+    .file-delete {
+        width: 25px;
+    }
+}
+
+.validation {
+    color: red;
+}
+
+.nodata-message {
+    text-align: center;
+    font-weight: bold;
+}
+
+.login-info {
+    float: right;
+}
+
+.login {
+    $bottomMargin: 12px;
+
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+
+    input, button, span.validation {
+        display: block;
+        padding: 6px 8px;
+    }
+
+    input {
+        width: calc(100% - 20px);
+    }
+
+    button {
+        margin: $bottomMargin auto 0 auto;
+    }
+
+    span.validation {
+        margin: 0 0 $bottomMargin 0;
+    }
+}
+
+.profile-list {
+    float: left;
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+            margin: 0;
+            display: inline;
+
+            a {
+                padding: 4px;
+            }
+        }
+    }
+}
+
+@import "site.reponsive";

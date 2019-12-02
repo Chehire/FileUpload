@@ -1,0 +1,24 @@
+﻿@model IndexViewModel
+@{
+    ViewData["Title"] = "Upload";
+}
+
+<partial name="_UploadForm" model="@Model.Upload" />
+
+@if (Model.Browser != null)
+{
+    <partial name="_Browser" model="@Model.Browser" />
+}
+
+<div class="version">@Model.AppVersion</div>
+
+@section Scripts 
+{
+    <script>
+
+        var Url = '@Model.Upload.Url';
+        var DownloadUrl = '@Model.Upload.DownloadUrl';
+        Initialize();
+
+    </script>
+}

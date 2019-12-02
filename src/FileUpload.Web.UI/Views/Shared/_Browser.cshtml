@@ -1,0 +1,54 @@
+﻿@model BrowseViewModel
+
+<div class="container browser" data-reload-url="@Model.ReloadUrl">
+    @if (Model.Files.Count > 0)
+    {
+        @*<button class="reload-button">↻ Reload</button>*@
+
+        <table>
+            <tr>
+                <th class="file-name">Name</th>
+                <th class="file-size">Size</th>
+                <th class="file-modifiedat">Modified at</th>
+                @if (Model.IsDeleteEnabled)
+                {
+                    <th class="file-delete"></th>
+                }
+            </tr>
+            @foreach (var file in Model.Files)
+            {
+                <tr>
+                    <td class="file-name">
+                        @if (Model.IsDownloadEnabled)
+                        {
+                            <a href="@Model.GetFileUrl(file)" target="_blank">@file.Name</a>
+                        }
+                        else
+                        {
+                            @file.Name
+                        }
+                    </td>
+                    <td class="file-size">
+                        @Model.FormatSize(file.Size) KB
+                    </td>
+                    <td class="file-modifiedat">
+                        @Model.Format(file.ModifiedAt)
+                    </td>
+                    @if (Model.IsDeleteEnabled)
+                    {
+                        <td class="file-delete">
+                            <form action="@Model.DeleteUrl" method="post">
+                                <input type="hidden" name="FileName" value="@file.Name" />
+                                <button title="Delete File">X</button>
+                            </form>
+                        </td>
+                    }
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <div class="nodata-message">Nothing to show here.</div>
+    }
+</div>
